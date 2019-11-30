@@ -20,7 +20,19 @@ const routes: Routes = [
   },
   {
     path: 'recover',
-    loadChildren: () => import('./recover/recover.module').then( m => m.RecoverPageModule)
+    loadChildren: () => import('./recover/recover.module').then( m => m.RecoverPageModule), canActivate: [SecureInnerPagesGuard]
+  },
+  {
+    path: 'event-detail/:id',
+    loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'comment/:id',
+    loadChildren: () => import('./comment/comment.module').then( m => m.CommentPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'event-create',
+    loadChildren: () => import('./event-create/event-create.module').then( m => m.EventCreatePageModule)
   },
 ];
 

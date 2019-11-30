@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {User} from "../shared/user.class";
+import { Store } from '@ngxs/store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 public isLogged: any = false;
-  constructor(public afauth: AngularFireAuth) {
+  constructor(public afauth: AngularFireAuth, private store: Store) {
     this.afauth.authState.subscribe(user => (this.isLogged = user));
   }
 

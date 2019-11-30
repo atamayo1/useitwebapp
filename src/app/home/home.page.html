@@ -1,39 +1,48 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Lista de eventos
+      List of events
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-item>
+    <ion-button (click)="onLogout()" >Log out</ion-button>
+    <ion-fab-button padding slot="end" routerLink="/event-create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-item>
+
+<ion-item *ngFor="let event of events">
+  <ion-card *ngIf="event.state.toString() == 'true'" style="width:100%;">
     <ion-item>
-      <ion-label>el mejor evento del mundo</ion-label>
-      <ion-button fill="outline" slot="end">si está interesado</ion-button>
-      <ion-button fill="outline" slot="end">asistir</ion-button>
-      <ion-button fill="outline" slot="end">rechazar</ion-button>
+      <ion-label>{{event.name}}</ion-label>
     </ion-item>
 
     <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
+      <ion-label> {{event.description}} </ion-label>
+      <ion-label> {{event.fecha}} </ion-label>
     </ion-card-content>
-  </ion-card>
 
-  <ion-card>
     <ion-item>
-      <ion-label>el mejor evento del mundo</ion-label>
-      <ion-button fill="outline" slot="end">si está interesado</ion-button>
-      <ion-button fill="outline" slot="end">asistir</ion-button>
-      <ion-button fill="outline" slot="end">rechazar</ion-button>
+      <ion-button fill="outline" slot="end" [routerLink]="['/comment' ,event.id]">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" slot="end" [routerLink]="['/event-detail' ,event.id]">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" slot="end" color="danger" (click)="onRemove(event.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
     </ion-item>
 
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
+    <ion-item>
+      <ion-button fill="outline" slot="end">si está interesado</ion-button>
+      <ion-button fill="outline" slot="end">asistir</ion-button>
+      <ion-button fill="outline" slot="end" (click)="offState(event.state)">rechazar</ion-button>
+    </ion-item>
   </ion-card>
+</ion-item>
 
-  <ion-button (click)="onLogout()" >Log out</ion-button>
 </ion-content>

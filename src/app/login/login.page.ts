@@ -14,8 +14,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
-  async onLogin(){
+   async onLogin(){
     const user = await this.authServc.onLogin(this.user);
     if(user){
       console.log('Successfully login user!');
