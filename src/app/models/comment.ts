@@ -1,8 +1,6 @@
-export interface Event{
+export interface Comment{
     id?: string;
     name: string;
     description: string;
     userid: string;
-    fecha: string;
-    state: string;
 }

@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {environment} from "../environments/environment";
+import {AngularFirestore} from "@angular/fire/firestore";
+import { NgxsModule } from '@ngxs/store';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,12 +23,18 @@ import {environment} from "../environments/environment";
     IonicModule.forRoot(),
     AppRoutingModule,
       AngularFireAuthModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig)
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgxsModule.forRoot([
+
+    ])
   ],
   providers: [
+      AngularFirestore,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+      GooglePlus,
+    { provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
