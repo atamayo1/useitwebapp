@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recover</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      Send us your email for recover password
+    </ion-label>
+    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item-divider>
+    <ion-button size="large" (click)="onRecover()">Recover Password</ion-button>
+  </ion-item-divider>
+</ion-content>
