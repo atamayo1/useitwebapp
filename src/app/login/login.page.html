@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+  <ion-label>
+    Email
+  </ion-label>
+  <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Contraseña
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+  <ion-item-divider>
+    <ion-button size="large" (click)="onLogin()">Login</ion-button>
+    <ion-button size="large" href="/register">New User</ion-button>
+  </ion-item-divider>
+  <ion-item-divider>
+    <ion-button size="small" href="/recover">Recover Password</ion-button>
+  </ion-item-divider>
+</ion-content>
