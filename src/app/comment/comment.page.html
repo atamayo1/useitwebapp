@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Comment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-button routerLink="/home" >Volver</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-card style="width:100%;">
+      <ion-item *ngIf="event">
+        <ion-label>{{event.name}}</ion-label>
+      </ion-item>
+      <ion-item *ngIf="event">
+        <ion-label>{{event.description}}</ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="event">
+        <ion-input>{{event.fecha}}</ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="event">
+       <ion-label>{{event.state}}</ion-label>
+      </ion-item>
+
+    </ion-card>
+  </ion-item>
+
+  <ion-item *ngFor="let comment of comments">
+    <ion-card style="width:100%;">
+      <ion-item>
+        <ion-label color="primary">{{comment.name}}</ion-label>
+      </ion-item>
+
+      <ion-card-content>
+        <ion-label> {{comment.description}} </ion-label>
+      </ion-card-content>
+
+    </ion-card>
+  </ion-item>
+
+  <ion-item>
+    <ion-card style="width:100%;">
+      <ion-item *ngIf="comment">
+        <ion-input required type="text" placeholder="Name" [(ngModel)]="comment.name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="comment">
+        <ion-input required type="text" placeholder="Description" [(ngModel)]="comment.description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="primary" fill="outline" slot="end" (click)="saveComment()">
+          Comment
+        </ion-button>
+      </ion-item>
+
+    </ion-card>
+  </ion-item>
+
+
+
+</ion-content>

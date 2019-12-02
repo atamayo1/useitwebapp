@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Detail of the event
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-button routerLink="/home">Volver</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-card style="width:100%;">
+      <ion-item *ngIf="event">
+        <ion-input required type="text" placeholder="Name" [(ngModel)]="event.name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="event">
+        <ion-input required type="text" placeholder="Description" [(ngModel)]="event.description"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="event">
+        <ion-input required type="date" placeholder="Date" [(ngModel)]="event.fecha"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="event">
+      <ion-select [(ngModel)]="event.state">
+        <ion-select-option value="true">Public</ion-select-option>
+        <ion-select-option value="false">Private</ion-select-option>
+      </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="primary" fill="outline" slot="end" (click)="saveEvent()">
+          Save
+        </ion-button>
+      </ion-item>
+
+    </ion-card>
+  </ion-item>
+
+</ion-content>

@@ -15,7 +15,7 @@
   </ion-item>
 
 <ion-item *ngFor="let event of events">
-  <ion-card *ngIf="event.state.toString() == 'true'" style="width:100%;">
+  <ion-card *ngIf="event.state == 'true'" style="width:100%;">
     <ion-item>
       <ion-label>{{event.name}}</ion-label>
     </ion-item>

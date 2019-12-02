@@ -17,7 +17,7 @@ export class HomePage implements OnInit{
       this.eventServ.getEvents().subscribe(res => this.events = res);
   }
 
-  onRemove(idEvent: string){
+  async onRemove(idEvent: string){
       this.eventServ.removeEvent(idEvent);
   }
   offState(state){
